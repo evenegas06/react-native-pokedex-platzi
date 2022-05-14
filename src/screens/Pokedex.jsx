@@ -7,7 +7,7 @@ import styles from '../styles/styles';
 const Pokedex = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Pokedex</Text>
+            <Text>Hola Gonzalo</Text>
         </SafeAreaView>
     );
 };
