@@ -1,7 +1,7 @@
-import { Text } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import PokemonList from '../components/PokemonList';
 import styles from '../styles/styles';
 import { getPokemons, getPokemonDetails } from '../utils/apiFunctions';
 
@@ -35,7 +35,7 @@ const Pokedex = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Hola Gonzalo</Text>
+            <PokemonList pokemons={pokemons}/>
         </SafeAreaView>
     );
 };
