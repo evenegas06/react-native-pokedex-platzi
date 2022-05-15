@@ -1,10 +1,20 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
 
-const PokemonScreen = () => {
+import styles from '../styles/styles';
+
+const PokemonScreen = (props) => {
+
+    const { navigation, route } = props;
+
+    console.log(route);
+
     return (
-        <View>
-            <Text>Estamos en un Pokemon</Text>
+        <View style={styles.container}>
+            <Image source={{ uri: route.params.image }}
+                style={styles.image}
+            />
+            <Text>{route.params.name}</Text>
         </View>
     );
 };

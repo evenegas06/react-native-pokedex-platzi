@@ -1,13 +1,21 @@
 import { View, Text, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const PokemonCard = ({ pokemon }) => {
 
     // const { pokemon } = props;
 
+    const navigation = useNavigation();
+
     const goToPokemon = () => {
-        console.log(`Vamos al pokemon: ${pokemon.name}`);
-        console.log(pokemon);
+        // navigation.navigate("nombre de la Screen");
+        navigation.navigate("Pokemon", {
+            id: pokemon.id,
+            name: pokemon.name,
+            image: pokemon.image
+        });
+        // console.log(`Vamos al pokemon: ${pokemon.name}`);
     };
 
     return (
