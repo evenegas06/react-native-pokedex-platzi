@@ -6,10 +6,23 @@ const getPokemons = async () => {
         const response = await fetch(url);
         const result = await response.json();
 
-        return result;   
+        return result;
+
     } catch (error) {
         throw error;
     }
 };
 
-export default getPokemons;
+const getPokemonDetails = async (url) => {
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+
+        return result;
+
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { getPokemons, getPokemonDetails };
