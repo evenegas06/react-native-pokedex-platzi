@@ -32,7 +32,10 @@ const Navigation = () => {
                     tabBarLabel: "",
                     tabBarIcon: () => {
                         return (
-                            renderPokeball()
+                            <Image source={require('../assets/pokeball.png')}
+                                style={{ width: 75, height: 75, top: -15 }}
+                            />
+                            // or renderPokeball()
                         );
                     },
                 }}

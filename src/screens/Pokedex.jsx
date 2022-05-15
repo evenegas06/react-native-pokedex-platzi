@@ -26,7 +26,7 @@ const Pokedex = () => {
                 name: pokemon_item_details.name,
                 type: pokemon_item_details.types[0].type.name,
                 order: pokemon_item_details.order,
-                image: pokemon_item_details.sprites.other["dream_world"].front_default,
+                image: pokemon_item_details.sprites.other["official-artwork"].front_default,
             });
         }
 
@@ -34,7 +34,7 @@ const Pokedex = () => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView >
             <PokemonList pokemons={pokemons}/>
         </SafeAreaView>
     );
