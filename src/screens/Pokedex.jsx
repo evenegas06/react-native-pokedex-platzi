@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { SafeAreaView } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import PokemonList from '../components/PokemonList';
@@ -8,16 +9,17 @@ import { getPokemons, getPokemonDetails } from '../utils/apiFunctions';
 const Pokedex = () => {
 
     const [pokemons, setPokemons] = useState([]);
-    console.log('pokemons_state = ', pokemons);
+    const [nextUrl, setNextUrl] = useState(null);
 
     useEffect(() => {
         loadPokemons();
     }, []);
 
     const loadPokemons = async () => {
-        const response = await getPokemons();
-        const pokemons_array = [];
+        const response = await getPokemons(nextUrl);
+        setNextUrl(response.next);
 
+        const pokemons_array = [];
         for await (const pokemon_item of response.results) {
             const pokemon_item_details = await getPokemonDetails(pokemon_item.url);
             
@@ -34,8 +36,19 @@ const Pokedex = () => {
     }
 
     return (
+        /* 
+            SafeAreaView del paquete react-native no funciona de la misma forma en 
+            Android como en IOS, en el caso de ios se puedes dejar por default, pero en Android 
+            se deben agregar los siguientes estilos para que funcione sin problema:
+            AndroidSafeArea: {
+                paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+            },
+        */
         <SafeAreaView >
-            <PokemonList pokemons={pokemons}/>
+            <PokemonList pokemons={pokemons}
+                loadPokemons={loadPokemons}
+                isNext={nextUrl}
+            />
         </SafeAreaView>
     );
 };

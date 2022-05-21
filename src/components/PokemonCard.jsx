@@ -31,8 +31,8 @@ const PokemonCard = ({ pokemon }) => {
             <View style={styles.card}>
                 <View style={styles.spacing}>
                     <View style={bgPokemonType}>
-                        <Text style={styles.order}>
-                            #{`${pokemon.order}`.padStart(3, 0)}
+                        <Text style={styles.id}>
+                            #{`${pokemon.id}`.padStart(3, 0)}
                         </Text>
                         <Text style={styles.name}>
                             {pokemon.name}
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         textTransform: "capitalize",
     },
-    order: {
+    id: {
         position: "absolute",
         right: 10,
         top: 10,

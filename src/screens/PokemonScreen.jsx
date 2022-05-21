@@ -7,7 +7,7 @@ const PokemonScreen = (props) => {
 
     const { navigation, route } = props;
 
-    console.log(route);
+    //console.log(route);
 
     return (
         <View style={styles.container}>
