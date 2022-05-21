@@ -2,10 +2,18 @@ import { View, Text, StyleSheet, Image, TouchableWithoutFeedback } from 'react-n
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
+import getColorByPokemonType from "../utils/getColorByPokemonType";
+
 const PokemonCard = ({ pokemon }) => {
 
     // const { pokemon } = props;
 
+    const color = getColorByPokemonType(pokemon.type);
+
+    const bgPokemonType = {
+        backgroundColor: color,
+        ...styles.bg
+    };
     const navigation = useNavigation();
 
     const goToPokemon = () => {
@@ -22,11 +30,15 @@ const PokemonCard = ({ pokemon }) => {
         <TouchableWithoutFeedback onPress={goToPokemon}>
             <View style={styles.card}>
                 <View style={styles.spacing}>
-                    <View style={styles.bg}>
-                        <Text style={styles.order}>#{`${pokemon.order}`.padStart(3, 0)}</Text>
-                        <Text style={styles.name}>{pokemon.name}</Text>
-                        <Image source={{ uri: pokemon.image }}
-                            style={styles.image}
+                    <View style={bgPokemonType}>
+                        <Text style={styles.order}>
+                            #{`${pokemon.order}`.padStart(3, 0)}
+                        </Text>
+                        <Text style={styles.name}>
+                            {pokemon.name}
+                        </Text>
+                        <Image style={styles.image} 
+                            source={{ uri: pokemon.image }}
                         />
                     </View>
                 </View>
@@ -45,7 +57,9 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     bg: {
-        backgroundColor: "pink"
+        flex: 1,
+        borderRadius: 15,
+        padding: 10
     },
     image: {
         position: "absolute",
@@ -58,14 +72,15 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "bold",
         fontSize: 15,
-        paddingTop: 10
+        paddingTop: 10,
+        textTransform: "capitalize",
     },
     order: {
-       // position: "absolute",
-        //right: 10,
-       // top: 10,
-        color: "black",
-       // fontSize: 11
+        position: "absolute",
+        right: 10,
+        top: 10,
+        color: "#fff",
+        fontSize: 11
     }
 });
 
