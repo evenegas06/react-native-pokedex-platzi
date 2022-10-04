@@ -20,8 +20,8 @@ const PokemonCard = ({ pokemon }) => {
         // navigation.navigate("nombre de la Screen");
         navigation.navigate("Pokemon", {
             id: pokemon.id,
-            name: pokemon.name,
-            image: pokemon.image
+            //name: pokemon.name,
+            //image: pokemon.image
         });
         // console.log(`Vamos al pokemon: ${pokemon.name}`);
     };
