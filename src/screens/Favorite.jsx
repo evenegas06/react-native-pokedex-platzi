@@ -7,7 +7,7 @@ import styles from '../styles/styles';
 const Favorite = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Favorite</Text>
+            <Text>Favorite xD</Text>
         </SafeAreaView>
     );
 };

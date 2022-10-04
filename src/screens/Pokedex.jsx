@@ -45,7 +45,8 @@ const Pokedex = () => {
             },
         */
         <SafeAreaView >
-            <PokemonList pokemons={pokemons}
+            <PokemonList 
+                pokemons={pokemons}
                 loadPokemons={loadPokemons}
                 isNext={nextUrl}
             />
