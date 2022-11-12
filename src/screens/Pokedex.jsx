@@ -22,7 +22,7 @@ const Pokedex = () => {
         const pokemons_array = [];
         for await (const pokemon_item of response.results) {
             const pokemon_item_details = await getPokemonDetails(pokemon_item.url);
-            
+
             pokemons_array.push({
                 id: pokemon_item_details.id,
                 name: pokemon_item_details.name,
@@ -45,8 +45,7 @@ const Pokedex = () => {
             },
         */
         <SafeAreaView >
-            <PokemonList 
-                pokemons={pokemons}
+            <PokemonList pokemons={pokemons}
                 loadPokemons={loadPokemons}
                 isNext={nextUrl}
             />

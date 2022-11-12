@@ -28,17 +28,23 @@ const Navigation = () => {
                 }}
             />
             <Tab.Screen name="Pokedex" component={PokedexNavigation}
-                options={{
-                    tabBarLabel: "",
-                    tabBarIcon: () => {
-                        return (
-                            <Image source={require('../assets/pokeball.png')}
-                                style={{ width: 75, height: 75, top: -15 }}
-                            />
-                            // or renderPokeball()
-                        );
-                    },
-                }}
+                options={
+                    {
+                        tabBarLabel: "",
+                        tabBarIcon: () => {
+                            return (
+                                <Image source={require('../assets/pokeball.png')}
+                                    style={{
+                                        width: 75,
+                                        height: 75,
+                                        top: -15
+                                    }}
+                                />
+                                // or renderPokeball()
+                            );
+                        },
+                    }
+                }
             />
             <Tab.Screen name="Account" component={AccountNavigation}
                 options={{

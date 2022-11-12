@@ -19,17 +19,19 @@ const PokemonList = ({ pokemons, loadPokemons, isNext }) => {
         <FlatList data={pokemons}
             numColumns={2}
             showsVerticalScrollIndicator={false}
-            keyExtractor={(pokemon) => String(pokemon.id)}
-            renderItem={({ item }) => {
-                return <PokemonCard pokemon={item} />
-            }}
+            keyExtractor={
+                (pokemon) => String(pokemon.id)
+            }
+            renderItem={
+                ({ item }) => {
+                    return <PokemonCard pokemon={item} />
+                }}
             contentContainerStyle={styles.container}
             onEndReached={isNext && loadMore}
             onEndReachedThreshold={0.1}
             ListFooterComponent={
                 isNext && (
-                    <ActivityIndicator 
-                        size="large"
+                    <ActivityIndicator size="large"
                         style={styles.spinner}
                         color="#382f50"
                     />
