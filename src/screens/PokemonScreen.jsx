@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../styles/styles';
 import { getOnePokemon } from '../utils/apiFunctions';
 import Header from '../components/Pokemon/Header';
+import Type from '../components/Pokemon/Type';
 
 const PokemonScreen = (props) => {
 
@@ -33,6 +34,7 @@ const PokemonScreen = (props) => {
                 image={pokemon.sprites.other["official-artwork"].front_default}
                 type={pokemon.types[0].type.name}
             />
+            <Type types={pokemon.types}/>
         </ScrollView>
     );
     // return (
