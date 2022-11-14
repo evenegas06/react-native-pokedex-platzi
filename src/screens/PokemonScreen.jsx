@@ -5,6 +5,7 @@ import styles from '../styles/styles';
 import { getOnePokemon } from '../utils/apiFunctions';
 import Header from '../components/Pokemon/Header';
 import Type from '../components/Pokemon/Type';
+import Stats from '../components/Pokemon/Stats';
 
 const PokemonScreen = (props) => {
 
@@ -35,6 +36,7 @@ const PokemonScreen = (props) => {
                 type={pokemon.types[0].type.name}
             />
             <Type types={pokemon.types}/>
+            <Stats stats={pokemon.stats}/>
         </ScrollView>
     );
     // return (
