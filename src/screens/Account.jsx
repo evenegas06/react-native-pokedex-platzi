@@ -1,14 +1,17 @@
-import { View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
+import { View, Text } from 'react-native';
 
+import LoginForm from '../components/Auth/LoginForm';
+import UserDashboard from '../components/Auth/UserDashboard';
 import styles from '../styles/styles';
 
 const Account = () => {
+    const auth = null;
+
     return (
-        <SafeAreaView style={styles.container}>
-            <Text>Account</Text>
-        </SafeAreaView>
+        <View style={styles.container}>
+            {auth ? <UserDashboard /> : <LoginForm />}
+        </View>
     );
 };
 
