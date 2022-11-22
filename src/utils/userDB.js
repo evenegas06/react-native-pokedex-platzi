@@ -1,9 +1,9 @@
-export const user = {
+export const userDB = {
     username: "evenegas06",
     password: "12345",
 };
 
-export const userDetails = {
+export const userDetailsDB = {
     username: "evenegas06",
     firstName: "Eduardo",
     lastName: "Venegas",

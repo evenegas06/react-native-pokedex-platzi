@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -10,8 +10,11 @@ import {
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+import { userDB, userDetailsDB } from '../../utils/userDB';
+
 const LoginForm = () => {
-    
+    const [error, setError] = useState('');
+
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -23,8 +26,19 @@ const LoginForm = () => {
         }),
         validateOnChange: false, // La validación solo se ejecutará al enviar el formulario...
         onSubmit: (values) => {
-            console.log('Formulario enviado...');
-            console.log(values);
+            // console.log('Formulario enviado...');
+            // console.log(values);
+            //const  { username, password } = values;
+
+            setError('');
+
+            if (values.username !== userDB.username || values.password !== userDB.password) {
+                setError('El usuario o la contraseña no son correctos...');
+            } else {
+                console.log('Login correcto');
+                console.log(userDetailsDB);
+            }
+
         },
     });
 
@@ -56,6 +70,7 @@ const LoginForm = () => {
             />
             <Text style={ styles.error }>{ formik.errors.username }</Text>
             <Text style={ styles.error }>{ formik.errors.password }</Text>
+            <Text style={ styles.error }>{ error }</Text>
         </View>
     );
 }
