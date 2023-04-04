@@ -11,9 +11,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import { userDB, userDetailsDB } from '../../utils/userDB';
+import useAuth from '../../hooks/useAuth';
 
 const LoginForm = () => {
     const [error, setError] = useState('');
+    const { login } = useAuth();
 
     const formik = useFormik({
         initialValues: {
@@ -35,45 +37,45 @@ const LoginForm = () => {
             if (values.username !== userDB.username || values.password !== userDB.password) {
                 setError('El usuario o la contraseña no son correctos...');
             } else {
-                console.log('Login correcto');
-                console.log(userDetailsDB);
+                login(userDetailsDB);
+                // console.log('Login correcto');
+                // console.log(userDetailsDB);
             }
-
         },
     });
 
     return (
         <View>
-            <Text style={ styles.title }>Iniciar sesión</Text>
-            <TextInput 
+            <Text style={styles.title}>Iniciar sesión</Text>
+            <TextInput
                 placeholder='Nombre de usuario'
-                style={ styles.input }
+                style={styles.input}
                 autoCapitalize='none'
-                value={ formik.values.username }
+                value={formik.values.username}
                 onChangeText={
                     (text) => formik.setFieldValue('username', text)
                 }
             />
             <TextInput
                 placeholder='Contraseña'
-                style={ styles.input }
+                style={styles.input}
                 autoCapitalize='none'
-                secureTextEntry={ true }
-                value={ formik.values.password }
+                secureTextEntry={true}
+                value={formik.values.password}
                 onChangeText={
                     (text) => formik.setFieldValue('password', text)
                 }
             />
-            <Button 
+            <Button
                 title='Entrar'
-                onPress={ formik.handleSubmit }
+                onPress={formik.handleSubmit}
             />
-            <Text style={ styles.error }>{ formik.errors.username }</Text>
-            <Text style={ styles.error }>{ formik.errors.password }</Text>
-            <Text style={ styles.error }>{ error }</Text>
+            <Text style={styles.error}>{formik.errors.username}</Text>
+            <Text style={styles.error}>{formik.errors.password}</Text>
+            <Text style={styles.error}>{error}</Text>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     title: {

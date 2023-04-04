@@ -5,8 +5,10 @@ import LoginForm from '../components/Auth/LoginForm';
 import UserDashboard from '../components/Auth/UserDashboard';
 import styles from '../styles/styles';
 
+import useAuth from '../hooks/useAuth';
+
 const Account = () => {
-    const auth = null;
+    const { auth } = useAuth();
 
     return (
         <View style={styles.container}>

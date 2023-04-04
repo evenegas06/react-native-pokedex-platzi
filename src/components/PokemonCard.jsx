@@ -37,7 +37,7 @@ const PokemonCard = ({ pokemon }) => {
                         <Text style={styles.name}>
                             {pokemon.name}
                         </Text>
-                        <Image style={styles.image} 
+                        <Image style={styles.image}
                             source={{ uri: pokemon.image }}
                         />
                     </View>
